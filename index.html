@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Supplementary Material</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>ESCA: Enabling Seamless Codec Avatar Execution<br>through Algorithm and Hardware Co-Optimization for Virtual Reality</h1>
+    <p>Supplementary Material for NeurIPS Submission 19446.</p>
+
+    <h2>Abstract</h2>
+    <p class="abstract">Photorealistic Codec Avatars (PCA), which enable high-fidelity human face rendering, are increasingly adopted in AR/VR applications to support immersive communication and interaction via deep learning-based generative models. However, these models impose significant computational demands, making real-time inference challenging on resource-constrained AR/VR devices such as head-mounted displays (HMDs), where latency and power efficiency are critical. To address this challenge, we propose an efficient post-training quantization (PTQ) method tailored for Codec Avatar models, enabling low-precision execution without compromising output quality. In addition, we design a custom hardware accelerator that can be integrated into the system-on-chip (SoC) of AR/VR devices to further enhance processing efficiency. Building on these components, we introduce <i>ESCA</i>, a full-stack optimization framework that accelerates PCA inference on edge AR/VR platforms. Experimental results demonstrate that ESCA boosts FovVideoVDP quality scores by up to +0.39 over the best 4-bit baseline, delivers up to 3.36× latency reduction, and sustains a rendering rate of 100 frames per second in end-to-end tests, satisfying real-time VR requirements. These results demonstrate the feasibility of deploying high-fidelity codec avatars on resource-constrained devices, opening the door to more immersive and portable VR experiences.</p>
+
+    <h2>Demo Video</h2>
+    <video width="640" controls>
+        <source src="assets/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <h2>Quantization Pipeline</h2>
+    <img src="assets/pipeline.png" alt="Pipeline" width="1000">
+
+    <h2>Main Contributions</h2>
+    <ul class="contributions">
+        <li>
+            <strong>Input Channel-wise Activation Smoothing (ICAS):</strong> We introduce a novel input channel-wise smoothing module inserted during training to alleviate extreme inter-channel activation disparities in the VAE decoder. By reducing outlier activations, ICAS diminishes quantization error and prevents aberrations when the model is later quantized to low bit-widths.
+        </li>
+        <li>
+            <strong>Facial-Feature-Aware Smoothing (FFAS):</strong> We develop a region-aware smoothing strategy that uses facial masks to identify key areas like the eyes and mouth. Based on the activation variance in these regions, FFAS selectively skips smoothing for the channels most critical to fine details, preserving important textures while still smoothing less sensitive regions.
+        </li>
+        <li>
+            <strong>UV-weighted Hessian-Based Weight Quantization:</strong> We propose a weight quantization scheme guided by a UV-weighted Hessian matrix of the decoder's loss. This method computes second-order sensitivity and weights it by the UV importance of each face region, thereby prioritizing the precision of weights that most affect critical facial features. This results a low-bit model that maintains high reconstruction fidelity in salient areas of the face.
+        </li>
+        <li>
+            <strong>Customized DNN Hardware Accelerator:</strong> We co-design a specialized hardware accelerator to support our quantized Codec Avatar model with high-throughput 4-bit and 8-bit operations. The accelerator features an input-combining mechanism to exploit the structured sparsity of the activation matrix. Moreover, an optimized end-to-end pipeline is applied to deliver over 100 FPS inference on an AR/VR headset ensuring smooth, real-time avatar rendering.
+        </li>
+    </ul>
+
+    <h2>Inference Latency</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Device</th>
+                    <th>Latency (ms)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Encoder (full)</td>
+                    <td>Snapdragon XR2 Gen 2</td>
+                    <td>13.80</td>
+                </tr>
+                <tr>
+                    <td>Encoder (full)</td>
+                    <td>NVIDIA Jetson Orin NX 16GB</td>
+                    <td>9.96</td>
+                </tr>
+                <tr>
+                    <td>Encoder (8 bit)</td>
+                    <td>Snapdragon XR2 Gen 2</td>
+                    <td>4.00</td>
+                </tr>
+                <tr>
+                    <td><strong>Encoder (8 bit)</strong></td>
+                    <td><strong>Our hardware accelerator</strong></td>
+                    <td><strong>3.05</strong></td>
+                </tr>
+                <tr>
+                    <td>Decoder (full)</td>
+                    <td>NVIDIA Jetson Orin NX 16GB</td>
+                    <td>50.35</td>
+                </tr>
+                <tr>
+                    <td>Decoder (full)</td>
+                    <td>Snapdragon XR2 Gen 2</td>
+                    <td>25.80</td>
+                </tr>
+                <tr>
+                    <td>Decoder (8 bit)</td>
+                    <td>Snapdragon XR2 Gen 2</td>
+                    <td>14.50</td>
+                </tr>
+                <tr>
+                    <td>Decoder (8 bit)</td>
+                    <td>Our hardware accelerator</td>
+                    <td>12.51</td>
+                </tr>
+                <tr>
+                    <td><strong>Decoder (4 bit)</strong></td>
+                    <td><strong>Our hardware accelerator</strong></td>
+                    <td><strong>3.13</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
