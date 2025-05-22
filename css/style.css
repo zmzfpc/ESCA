@@ -93,3 +93,11 @@ ul {
 li {
     margin: 10px 0;
 }
+
+.vdp-table strong {
+    color: #e60000;
+}
+
+.table-container strong {
+    color: #e60000;
+}
