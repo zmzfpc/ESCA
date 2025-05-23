@@ -101,3 +101,11 @@ li {
 .table-container strong {
     color: #e60000;
 }
+
+.video-caption {
+    text-align: left;
+    max-width: 1000px;
+    margin: 20px auto;
+    font-size: 1.08em;
+    line-height: 1.6;
+}
