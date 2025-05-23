@@ -118,13 +118,6 @@ python visualize.py \
 - `non`: Non-residual architecture
 - `bilinear`: Bilinear upsampling architecture
 
-## Evaluation Metrics
-
-The framework supports multiple evaluation metrics:
-- **PSNR**: Peak Signal-to-Noise Ratio
-- **SSIM**: Structural Similarity Index
-- **LPIPS**: Learned Perceptual Image Patch Similarity
-- **FovVideoVDP**: Foveated Video Difference Predictor
 
 
 
