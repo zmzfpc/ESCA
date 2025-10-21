@@ -85,10 +85,8 @@ bash scripts/ptq_training_testing.sh
 │   └── ptq_training_testing.sh  # PTQ training script
 ├── runs/                   # Quantization experiment outputs (git-ignored)
 ├── pretrained_model/       # Pre-trained full-precision models
-├── checkpoints/            # Best quantized model checkpoints (optional)
 ├── docs/                   # Documentation and assets
-│   ├── assets/             # Images, videos, and media files
-│   └── css/                # Webpage styling
+│   └── assets/             # Images, videos, and media files
 ├── profiling_plot/         # Profiling and visualization tools
 ├── test_segments_*/        # Test segment configurations
 ├── dataset.py              # Dataset handling
