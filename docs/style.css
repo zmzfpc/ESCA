@@ -1,0 +1,397 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: white;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: white;
+    color: #333;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #000;
+}
+
+.authors {
+    margin: 30px auto;
+    text-align: center;
+    max-width: 900px;
+}
+
+.author-names {
+    font-size: 1.1em;
+    margin: 15px auto;
+    font-weight: 400;
+    text-align: center;
+}
+
+.author {
+    display: inline-block;
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+.author sup {
+    font-size: 0.8em;
+    margin-left: 2px;
+}
+
+.affiliations {
+    font-size: 0.95em;
+    margin: 10px auto;
+    color: #666;
+    text-align: center;
+}
+
+.affiliations sup {
+    font-size: 0.9em;
+    margin-right: 3px;
+}
+
+.emails {
+    font-size: 0.9em;
+    margin: 15px auto;
+    text-align: center;
+}
+
+.emails a {
+    color: #0066cc;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.emails a:hover {
+    text-decoration: underline;
+}
+
+.conference {
+    text-align: center;
+}
+
+.conference p {
+    font-size: 1.1em;
+    margin: 20px auto;
+    font-weight: 600;
+    color: #000;
+}
+
+.links {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    margin: 5px 10px;
+    background: white;
+    color: #0066cc;
+    text-decoration: none;
+    border: 1px solid #0066cc;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #0066cc;
+    color: white;
+}
+
+.btn i {
+    margin-right: 6px;
+}
+
+/* Section */
+.section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 40px;
+    background: white;
+}
+
+h2 {
+    color: #000;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+}
+
+h2 i {
+    margin-right: 10px;
+}
+
+p {
+    margin: 15px 0;
+    text-align: justify;
+}
+
+/* Abstract */
+.abstract {
+    line-height: 1.7;
+    font-size: 1em;
+    color: #333;
+}
+
+.abstract p {
+    margin-bottom: 15px;
+}
+
+.highlight {
+    font-weight: 700;
+}
+
+/* Video Section */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.caption-box {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-top: 15px;
+    border-left: 3px solid #000;
+}
+
+.caption-item {
+    margin: 10px 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.label {
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+/* Image Container */
+.image-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.image-caption {
+    margin-top: 15px;
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Contributions List */
+.contributions-list {
+    margin: 20px 0;
+    padding-left: 0;
+}
+
+.contributions-list li {
+    margin: 20px 0;
+    line-height: 1.7;
+    list-style: none;
+    position: relative;
+    padding-left: 30px;
+}
+
+.contributions-list li:before {
+    content: "•";
+    position: absolute;
+    left: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.contributions-list strong {
+    font-weight: 700;
+}
+
+/* Tables */
+.table-container {
+    margin: 30px 0;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #f0f0f0;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.highlight-row {
+    background: #f0f0f0;
+    font-weight: 600;
+}
+
+table strong {
+    font-weight: 700;
+}
+
+.section-sep {
+    height: 5px;
+    background: #f0f0f0;
+}
+
+.section-sep td {
+    border: none;
+    padding: 0;
+}
+
+.table-note {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+/* Footer */
+footer {
+    background: #f5f5f5;
+    color: #333;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 1px solid #ddd;
+}
+
+.footer-content p {
+    margin: 8px 0;
+    font-size: 0.9em;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #0066cc;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.95em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links i {
+    margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.6em;
+    }
+    
+    .author-names {
+        font-size: 1em;
+    }
+    
+    .author {
+        display: block;
+        margin: 8px 0;
+    }
+    
+    .affiliations {
+        font-size: 0.9em;
+    }
+    
+    .emails a {
+        display: block;
+        margin: 8px 0;
+    }
+    
+    .section {
+        padding: 0 20px;
+        margin: 30px 20px;
+    }
+    
+    .btn {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    table {
+        font-size: 0.85em;
+    }
+    
+    th, td {
+        padding: 8px 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.3em;
+    }
+    
+    .header {
+        padding: 40px 15px;
+    }
+    
+    table {
+        font-size: 0.75em;
+    }
+    
+    th, td {
+        padding: 6px 3px;
+    }
+}
