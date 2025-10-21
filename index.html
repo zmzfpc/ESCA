@@ -2,49 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Supplementary Material</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCA: Enabling Seamless Codec Avatar Execution</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1>ESCA: Enabling Seamless Codec Avatar Execution<br>through Algorithm and Hardware Co-Optimization for Virtual Reality</h1>
-    <p>Supplementary Material for NeurIPS Submission 19446.</p>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>ESCA: Enabling Seamless Codec Avatar Execution through Algorithm and Hardware Co-Optimization for Virtual Reality</h1>
+        <div class="authors">
+            <p class="author-names">
+                <span class="author">Mingzhi Zhu<sup>1, 2</sup></span>
+                <span class="author">Ding Shang<sup>1</sup></span>
+                <span class="author">Sai Qian Zhang<sup>1</sup></span>
+            </p>
+            <p class="affiliations">
+                <sup>1</sup>New York University &nbsp;&nbsp;&nbsp; <sup>2</sup>Rensselaer Polytechnic Institute
+            </p>
+            <p class="emails">
+                <a href="mailto:zhum8@rpi.edu">zhum8@rpi.edu</a>, 
+                <a href="mailto:dingshang@nyu.edu">dingshang@nyu.edu</a>, 
+                <a href="mailto:sai.zhang@nyu.edu">sai.zhang@nyu.edu</a>
+            </p>
+        </div>
+        <div class="conference">
+            <p>NeurIPS 2024</p>
+        </div>
+        <div class="links">
+            <a href="https://github.com/zmzfpc/ESCA" class="btn"><i class="fab fa-github"></i> Code</a>
+            <a href="#" class="btn"><i class="fas fa-file-pdf"></i> Paper</a>
+            <a href="#" class="btn"><i class="fas fa-database"></i> Dataset</a>
+        </div>
+    </div>
 
-    <h2>Abstract</h2>
-    <p class="abstract">Photorealistic Codec Avatars (PCA), which enable high-fidelity human face rendering, are increasingly adopted in AR/VR applications to support immersive communication and interaction via deep learning-based generative models. However, these models impose significant computational demands, making real-time inference challenging on resource-constrained AR/VR devices such as head-mounted displays (HMDs), where latency and power efficiency are critical. To address this challenge, we propose an efficient post-training quantization (PTQ) method tailored for Codec Avatar models, enabling low-precision execution without compromising output quality. In addition, we design a custom hardware accelerator that can be integrated into the system-on-chip (SoC) of AR/VR devices to further enhance processing efficiency. Building on these components, we introduce <i>ESCA</i>, a full-stack optimization framework that accelerates PCA inference on edge AR/VR platforms. Experimental results demonstrate that ESCA boosts FovVideoVDP quality scores by up to +0.39 over the best 4-bit baseline, delivers up to 3.36× latency reduction, and sustains a rendering rate of 100 frames per second in end-to-end tests, satisfying real-time VR requirements. These results demonstrate the feasibility of deploying high-fidelity codec avatars on resource-constrained devices, opening the door to more immersive and portable VR experiences.</p>
+    <!-- Abstract Section -->
+    <div class="section">
+        <h2><i class="fas fa-book"></i> Abstract</h2>
+        <div class="abstract">
+            <p>Photorealistic Codec Avatars (PCA), which enable high-fidelity human face rendering, are increasingly adopted in AR/VR applications to support immersive communication and interaction via deep learning-based generative models. However, these models impose significant computational demands, making real-time inference challenging on resource-constrained AR/VR devices such as head-mounted displays (HMDs), where latency and power efficiency are critical.</p>
+            <p>To address this challenge, we propose an efficient post-training quantization (PTQ) method tailored for Codec Avatar models, enabling low-precision execution without compromising output quality. In addition, we design a custom hardware accelerator that can be integrated into the system-on-chip (SoC) of AR/VR devices to further enhance processing efficiency.</p>
+            <p>Building on these components, we introduce <strong>ESCA</strong>, a full-stack optimization framework that accelerates PCA inference on edge AR/VR platforms. Experimental results demonstrate that ESCA boosts FovVideoVDP quality scores by up to <span class="highlight">+0.39</span> over the best 4-bit baseline, delivers up to <span class="highlight">3.36×</span> latency reduction, and sustains a rendering rate of <span class="highlight">100 FPS</span> in end-to-end tests, satisfying real-time VR requirements.</p>
+        </div>
+    </div>
 
-    <h2>Comparison of Avatars with Full and Quantized Models</h2>
-    <video width="1000" controls autoplay muted>
-        <source src="assets/esca_w4a4.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <p class="video-caption">
-        Left: Avatar rendered using the full precision MultiFace model (CVPR 2023-3DMV)<br>
-        Middle: Degraded avatar showing noise and jitter artifacts from state-of-the-art post-training quantization (INT4)<br>
-        Right: Clean, stable avatar achieved through the proposed ESCA quantization method (INT4)
-    </p>
+    <!-- Video Comparison Section -->
+    <div class="section">
+        <h2><i class="fas fa-video"></i> Visual Comparison: Full vs. Quantized Models</h2>
+        <div class="video-container">
+            <video controls autoplay muted loop>
+                <source src="assets/esca_w4a4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="caption-box">
+            <div class="caption-item">
+                <span class="label left-label">Left:</span> Avatar rendered using the full precision MultiFace model (FP32)
+            </div>
+            <div class="caption-item">
+                <span class="label middle-label">Middle:</span> Degraded avatar showing noise and jitter artifacts from state-of-the-art PTQ baseline (INT4)
+            </div>
+            <div class="caption-item">
+                <span class="label right-label">Right:</span> Clean, stable avatar achieved through <strong>ESCA</strong> quantization method (INT4)
+            </div>
+        </div>
+    </div>
 
-    <h2>Quantization Pipeline</h2>
-    <img src="assets/pipeline.png" alt="Pipeline" width="1000">
+    <!-- Pipeline Section -->
+    <div class="section">
+        <h2><i class="fas fa-diagram-project"></i> ESCA Quantization Pipeline</h2>
+        <div class="image-container">
+            <img src="assets/pipeline.png" alt="ESCA Quantization Pipeline">
+        </div>
+        <p class="image-caption">Overview of the ESCA framework showing the integration of ICAS, FFAS, and UV-weighted Hessian-based quantization.</p>
+    </div>
 
-    <h2>Main Contributions</h2>
-    <ul class="contributions">
-        <li>
-            <strong>Input Channel-wise Activation Smoothing (ICAS):</strong> We introduce a novel input channel-wise smoothing module inserted during training to alleviate extreme inter-channel activation disparities in the VAE decoder. By reducing outlier activations, ICAS diminishes quantization error and prevents aberrations when the model is later quantized to low bit-widths.
-        </li>
-        <li>
-            <strong>Facial-Feature-Aware Smoothing (FFAS):</strong> We develop a region-aware smoothing strategy that uses facial masks to identify key areas like the eyes and mouth. Based on the activation variance in these regions, FFAS selectively skips smoothing for the channels most critical to fine details, preserving important textures while still smoothing less sensitive regions.
-        </li>
-        <li>
-            <strong>UV-weighted Hessian-Based Weight Quantization:</strong> We propose a weight quantization scheme guided by a UV-weighted Hessian matrix of the decoder's loss. This method computes second-order sensitivity and weights it by the UV importance of each face region, thereby prioritizing the precision of weights that most affect critical facial features. This results a low-bit model that maintains high reconstruction fidelity in salient areas of the face.
-        </li>
-        <li>
-            <strong>Customized DNN Hardware Accelerator:</strong> We co-design a specialized hardware accelerator to support our quantized Codec Avatar model with high-throughput 4-bit and 8-bit operations. The accelerator features an input-combining mechanism to exploit the structured sparsity of the activation matrix. Moreover, an optimized end-to-end pipeline is applied to deliver over 100 FPS inference on an AR/VR headset ensuring smooth, real-time avatar rendering.
-        </li>
-    </ul>
+    <!-- Contributions Section -->
+    <div class="section">
+        <h2><i class="fas fa-lightbulb"></i> Key Contributions</h2>
+        <div class="contributions-grid">
+            <div class="contribution-card">
+                <div class="contribution-icon">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
+                <h3>Input Channel-wise Activation Smoothing (ICAS)</h3>
+                <p>A novel input channel-wise smoothing module that alleviates extreme inter-channel activation disparities in the VAE decoder. ICAS reduces outlier activations, diminishing quantization error and preventing aberrations at low bit-widths.</p>
+            </div>
+            <div class="contribution-card">
+                <div class="contribution-icon">
+                    <i class="fas fa-face-smile"></i>
+                </div>
+                <h3>Facial-Feature-Aware Smoothing (FFAS)</h3>
+                <p>A region-aware smoothing strategy using facial masks to identify key areas like eyes and mouth. FFAS selectively skips smoothing for channels critical to fine details, preserving important textures while smoothing less sensitive regions.</p>
+            </div>
+            <div class="contribution-card">
+                <div class="contribution-icon">
+                    <i class="fas fa-weight-hanging"></i>
+                </div>
+                <h3>UV-weighted Hessian-Based Quantization</h3>
+                <p>A weight quantization scheme guided by a UV-weighted Hessian matrix. This method prioritizes precision of weights affecting critical facial features, maintaining high reconstruction fidelity in salient face areas.</p>
+            </div>
+            <div class="contribution-card">
+                <div class="contribution-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Custom Hardware Accelerator</h3>
+                <p>A specialized DNN accelerator supporting high-throughput 4-bit and 8-bit operations. Features input-combining mechanism for structured sparsity and delivers over 100 FPS inference on AR/VR headsets.</p>
+            </div>
+        </div>
+    </div>
 
-    <h2>VDP scores</h2>
-    <div class="table-container">
-        <table class="vdp-table">
+    <!-- Results Section -->
+    <div class="section">
+        <h2><i class="fas fa-chart-line"></i> FovVideoVDP Quality Scores</h2>
+        <div class="table-container">
+            <table class="results-table">
             <thead>
                 <tr>
                     <th>Method</th>
@@ -94,11 +166,15 @@
                 <tr><td>FFAS-UV (Ours)</td><td><strong>6.5241</strong></td><td>5.8589</td><td><strong>5.8071</strong></td></tr>
             </tbody>
         </table>
+        <p class="table-note">Higher FovVideoVDP scores indicate better perceptual quality. Our FFAS-UV method achieves the best results in W4A4 quantization.</p>
+    </div>
     </div>
 
-    <h2>Inference Latency</h2>
-    <div class="table-container">
-        <table>
+    <!-- Latency Results Section -->
+    <div class="section">
+        <h2><i class="fas fa-clock"></i> Inference Latency Comparison</h2>
+        <div class="table-container">
+            <table class="latency-table">
             <thead>
                 <tr>
                     <th>Model</th>
@@ -147,13 +223,26 @@
                     <td>Our hardware accelerator</td>
                     <td>12.51</td>
                 </tr>
-                <tr>
+                <tr class="highlight-row">
                     <td><strong>Decoder (4 bit)</strong></td>
                     <td><strong>Our hardware accelerator</strong></td>
                     <td><strong>3.13</strong></td>
                 </tr>
             </tbody>
         </table>
+        <p class="table-note">Our custom hardware accelerator achieves up to 3.36× latency reduction compared to commercial AR/VR platforms.</p>
     </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>ESCA: Enabling Seamless Codec Avatar Execution through Algorithm and Hardware Co-Optimization for Virtual Reality</p>
+            <p>NeurIPS 2024 Submission</p>
+            <div class="footer-links">
+                <a href="https://github.com/zmzfpc/ESCA"><i class="fab fa-github"></i> GitHub Repository</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
