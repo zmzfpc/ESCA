@@ -66,10 +66,8 @@ dataset/*
 .cache/
 
 # Videos and large media
-*.mp4
 *.avi
 *.mov
-!assets/*.mp4
 
 # Compiled files
 *.pyc
