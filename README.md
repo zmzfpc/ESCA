@@ -4,7 +4,7 @@
 [![Python 3.13](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 
-This repository contains the implementation of ESCA, a full-stack optimization framework for accelerating Photorealistic Codec Avatar (PCA) inference on edge AR/VR platforms through efficient post-training quantization and custom hardware acceleration.
+This repository contains the implementation of ESCA, a full-stack optimization framework for accelerating Photorealistic Codec Avatar (PCA) inference on edge AR/VR platforms through efficient post-training quantization.
 
 ## Table of Contents
 
@@ -37,8 +37,6 @@ Photorealistic Codec Avatars (PCA) enable high-fidelity human face rendering for
 - **Input Channel-wise Activation Smoothing (ICAS)**: Novel smoothing module to reduce extreme inter-channel activation disparities
 - **Facial-Feature-Aware Smoothing (FFAS)**: Region-aware smoothing strategy using facial masks
 - **UV-weighted Hessian-Based Weight Quantization**: Weight quantization guided by UV-weighted Hessian matrix
-- **Custom Hardware Accelerator**: Specialized DNN accelerator with 4-bit and 8-bit operations support
-- **Real-time Performance**: Achieves 100+ FPS rendering on AR/VR headsets
 
 
 ## Performance Results
